@@ -8,7 +8,7 @@ jobs:
 
     steps:
     - name: Invoke workflow from another repository
-      uses: [OWNER/REPO_NAME]/[WORKFLOW_FILE_PATH]
+      uses: RekhuGopal/InvokeGitHubActionsCalled/.github/workflows/calledworkflow.yml
       with:
         # Optional: Pass inputs to the workflow
         input_1: value_1

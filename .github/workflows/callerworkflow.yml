@@ -1,0 +1,15 @@
+name: My Workflow
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Invoke workflow from another repository
+      uses: [OWNER/REPO_NAME]/[WORKFLOW_FILE_PATH]
+      with:
+        # Optional: Pass inputs to the workflow
+        input_1: value_1
+        input_2: value_2

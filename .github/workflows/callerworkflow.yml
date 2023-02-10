@@ -25,8 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     env: 
       pat_token: ${{ secrets.PAT_TOKEN_GITHUB }}
-      parameter1: 'Hellow I am parameter 1'
-      parameter2: 'Hellow I am parameter 2'
+      parameter1: '42574587345'
+      parameter2: 'TestStringWithoutSpace'
 
     steps:
 

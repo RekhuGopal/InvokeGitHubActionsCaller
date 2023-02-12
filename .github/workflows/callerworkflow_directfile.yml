@@ -1,0 +1,13 @@
+name: "call_workflow_from_other_repo"
+on:
+  workflow_dispatch:
+
+jobs:
+  Plan_Dev:
+    if: github.ref == 'refs/heads/main'
+    uses: RekhuGopal/InvokeGitHubActionsCalled/.github/workflows/called_workflow_direct_file.yml@main
+    with:
+      Input1: "XYZ1"
+      Input2: "XYZ2"
+      Input3: "XYZ3"
+      Input4: "XYZ4"

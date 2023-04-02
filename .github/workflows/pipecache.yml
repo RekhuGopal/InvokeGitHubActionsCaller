@@ -1,0 +1,27 @@
+name: "python_pip_cache_github_actions"
+on:
+  workflow_dispatch:
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+    env: 
+      pythonLocation: PythonScripts/requirements.txt
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+
+      - uses: actions/cache@v2
+        with:
+          path: ${{ env.pythonLocation }}
+          key: ${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}-${{ hashFiles('requirements.txt') }}
+          
+      - name: Install requirements
+        run: |
+          pip install --upgrade --upgrade-strategy eager -r requirements.txt -e .

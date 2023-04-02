@@ -20,8 +20,10 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: ~/.cache/pip
-          key: ${{ hashFiles('setup.py') }}-${{ hashFiles('PythonScripts/requirements.txt') }}
+          key: ${{ hashFiles('PythonScripts/requirements.txt') }}
         
-      - name: Install requirements
+      - name: Install dependencies
         run: |
-          pip install --upgrade --upgrade-strategy eager -r PythonScripts/requirements.txt -e .
+           cd "$GITHUB_WORKSPACE/PythonScripts/"
+           python -m pip install --upgrade pip
+           pip install -r requirements.txt
